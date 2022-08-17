@@ -26,8 +26,10 @@ class MoviesRepoImpl implements MoviesRepo {
   Future<Either<Failure, List<Movie>>> search(String text) async {
     try {
       final result = await moviesRemoteDataSource.search(text);
+      print(result);
       return right((result.map((e) => e.toDomain()).toList()));
     } catch (e) {
+      rethrow;
       return left(NetworkFailure());
     }
   }

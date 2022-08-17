@@ -38,7 +38,7 @@ class MovieSearchCard extends StatelessWidget {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                   Text(
                     movie.overview,
-                    maxLines: 6,
+                    maxLines: 5,
                   ),
                   SizedBox(height: 10),
                   Align(
