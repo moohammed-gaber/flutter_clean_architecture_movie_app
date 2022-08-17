@@ -2,9 +2,6 @@
 //
 //     final movieModel = movieModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
 class Movie {
   Movie({
     required this.backdrop,
@@ -25,7 +22,7 @@ class Movie {
   final String backdrop;
   final List<String> cast;
   final String classification;
-  final dynamic director;
+  final List<String> director;
   final List<String> genres;
   final String id;
   final num ratingOutTen;
@@ -35,6 +32,11 @@ class Movie {
   final DateTime releasedOn;
   final String slug;
   final String title;
+
+  int get year => releasedOn.year;
+
+  String get getCast => cast.reduce((value, element) => '$value, $element');
+  String get getDirectors => director.reduce((value, element) => '$value, $element');
 
   num get ratingOutFive => (ratingOutTen * 5) / 10;
 }

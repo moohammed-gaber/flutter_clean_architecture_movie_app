@@ -27,7 +27,7 @@ class MovieModel {
   final String backdrop;
   final List<String> cast;
   final String classification;
-  final dynamic director;
+  final List<String> director;
   final List<String> genres;
   final String id;
   final num imdbRating;
@@ -56,19 +56,24 @@ class MovieModel {
         title: title);
   }
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
-        backdrop: json["backdrop"],
-        cast: List<String>.from(json["cast"].map((x) => x)),
-        classification: json["classification"],
-        director: json["director"],
-        genres: List<String>.from(json["genres"].map((x) => x)),
-        id: json["id"],
-        imdbRating: json["imdb_rating"],
-        length: json["length"],
-        overview: json["overview"],
-        poster: json["poster"],
-        releasedOn: DateTime.parse(json["released_on"]),
-        slug: json["slug"],
-        title: json["title"],
-      );
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
+    final jsonDirectors = json["director"];
+    return MovieModel(
+      backdrop: json["backdrop"],
+      cast: List<String>.from(json["cast"].map((x) => x)),
+      classification: json["classification"],
+      director: jsonDirectors is List
+          ? jsonDirectors.cast<String>()
+          : [jsonDirectors as String],
+      genres: List<String>.from(json["genres"].map((x) => x)),
+      id: json["id"],
+      imdbRating: json["imdb_rating"],
+      length: json["length"],
+      overview: json["overview"],
+      poster: json["poster"],
+      releasedOn: DateTime.parse(json["released_on"]),
+      slug: json["slug"],
+      title: json["title"],
+    );
+  }
 }
