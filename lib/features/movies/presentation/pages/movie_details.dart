@@ -23,15 +23,12 @@ class MovieDetails extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 3,
-                    child: Hero(
-                      tag: 'image',
-                      child: CachedNetworkImage(
-                        height: 400,
-                        imageUrl: movie.poster,
-                        // height: double.infinity,
-                        // width: 200,
-                        fit: BoxFit.cover,
-                      ),
+                    child: CachedNetworkImage(
+                      height: 400,
+                      imageUrl: movie.poster,
+                      // height: double.infinity,
+                      // width: 200,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   SizedBox(
