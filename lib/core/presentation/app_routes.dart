@@ -1,3 +1,4 @@
+import 'package:clean_arch_movie_app/features/movies/presentation/pages/movie_details.dart';
 import 'package:clean_arch_movie_app/features/movies/presentation/pages/movies_page.dart';
 
 class AppRoutes {
@@ -7,8 +8,9 @@ class AppRoutes {
 
   static get routes => {
         movies: (context) => MoviesPage(),
+        movieDetails: (context) => MovieDetails(),
+
 /*
-        movieDetails: (context) => LoginPage(),
         search: (context) => RegisterBlocProvider(),
 */
       };
