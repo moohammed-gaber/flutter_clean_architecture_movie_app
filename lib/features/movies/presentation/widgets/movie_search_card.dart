@@ -11,8 +11,8 @@ class MovieSearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>
-          Navigator.pushNamed(context, AppRoutes.search, arguments: movie),
+      onTap: () => Navigator.pushNamed(context, AppRoutes.movieDetails,
+          arguments: movie),
       child: SizedBox(
         height: 180,
         child: Card(
